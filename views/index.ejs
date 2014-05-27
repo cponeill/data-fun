@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Datashar.es</title>
+
+	<!-- Tangle -->
+	<script type="text/javascript" src="/javascripts/Tangle.js"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- TangleKit (optional) -->
+	<link rel="stylesheet" href="/TangleKit/TangleKit.css" type="text/css">
+	<script type="text/javascript" src="/TangleKit/mootools.js"></script>
+	<script type="text/javascript" src="/TangleKit/sprintf.js"></script>
+	<script type="text/javascript" src="/TangleKit/BVTouchable.js"></script>
+	<script type="text/javascript" src="/TangleKit/TangleKit.js"></script>
+
+	<!-- example -->
+	<script type="text/javascript">
+
+		function setUpTangle () {
+
+			var element = document.getElementById("money");
+
+			var tangle = new Tangle(element, {
+				initialize: function () {
+					this.bitcoin = 1;
+					this.gold = 1;
+					this.coffee = 1;
+					this.coffeeCharge = 3.25;
+					this.dollarsPerBitcoin = 583;
+					this.dollarsPerGold = 1290;
+				},
+				update: function () {
+					this.dollars = this.bitcoin * this.dollarsPerBitcoin;
+					this.goldPrice = this.gold * this.dollarsPerGold;
+					this.coffeePrice = this.coffee * this.coffeeCharge;
+				}
+			});
+		}
+
+	</script>
+</head>
+
+<body onload="setUpTangle();">
+
+	<h2>Welcome to <strong>Datashar.es</strong></h2>
+
+	<h5>There isn't much here yet but I am working on that. I just wanted to get something up for all to see. For now this just a simple reactive document. Go ahead and play with the numbers. </h5>
+	<br />
+	<h4 id="money">
+		When you have <span data-var="bitcoin" class="TKAdjustableNumber" data-min="1" data-max="1000"> Bitcoin</span>, 
+		the value is $<span data-var="dollars"></span> Dollars.
+		<br />
+		<br />
+		When you have <span data-var="gold" class="TKAdjustableNumber" data-min="1" data-max="1000">oz of Gold</span>,
+		the value is $<span data-var="goldPrice"></span> Dollars.
+		<br />
+		<br />
+	<!--	Right now the value of <span data-var="coffee" class="TKAdjustableNumber" data-min="1" data-max="1000"> Latte </span>
+		of coffee at Starbucks is $<span data-var="coffeePrice"></span> dollars.
+		<br />
+		<br /> -->
+	</h4>
+
+</body>
+</html>
