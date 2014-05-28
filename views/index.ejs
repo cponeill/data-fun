@@ -25,11 +25,11 @@
 			var tangle = new Tangle(element, {
 				initialize: function () {
 					this.bitcoin = 1;
+					this.dollarsPerBitcoin = 583;
 					this.gold = 1;
+					this.dollarsPerGold = 1290;
 					this.coffee = 1;
 					this.coffeeCharge = 3.25;
-					this.dollarsPerBitcoin = 583;
-					this.dollarsPerGold = 1290;
 				},
 				update: function () {
 					this.dollars = this.bitcoin * this.dollarsPerBitcoin;
