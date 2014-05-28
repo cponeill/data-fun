@@ -24,17 +24,22 @@
 
 			var tangle = new Tangle(element, {
 				initialize: function () {
-					this.bitcoin = 1;
-					this.dollarsPerBitcoin = 583;
+					this.bitcoinOne = 1;
+					this.dollarsPerBitcoin = 570;
 					this.gold = 1;
 					this.dollarsPerGold = 1290;
 					this.coffee = 1;
-					this.coffeeCharge = 3.25;
+					this.coffeeChargeOne = 3.25;
+					this.bitcoinTwo = 1;
+					this.dollarsPerBitconTwo = 570;
+					this.coffeeChargeTwo = 3.25;
+					this.pricePerCoffeePerBitcoin = this.dollarsPerBitconTwo / this.coffeeChargeTwo;
 				},
 				update: function () {
-					this.dollars = this.bitcoin * this.dollarsPerBitcoin;
+					this.dollars = this.bitcoinOne * this.dollarsPerBitcoin;
 					this.goldPrice = this.gold * this.dollarsPerGold;
-					this.coffeePrice = this.coffee * this.coffeeCharge;
+					this.coffeePrice = this.coffee * this.coffeeChargeOne;
+					this.coffeePerBitcoin = this.bitcoinTwo * this.pricePerCoffeePerBitcoin
 				}
 			});
 		}
@@ -49,7 +54,7 @@
 	<h5>There isn't much here yet but I am working on that. I just wanted to get something up for all to see. For now this just a simple reactive document. Go ahead and play with the numbers. </h5>
 	<br />
 	<h4 id="money">
-		When you have <span data-var="bitcoin" class="TKAdjustableNumber" data-min="1" data-max="1000"> Bitcoin</span>, 
+		When you have <span data-var="bitcoinOne" class="TKAdjustableNumber" data-min="1" data-max="1000"> Bitcoin</span>, 
 		the value is $<span data-var="dollars"></span> Dollars.
 		<br />
 		<br />
@@ -57,10 +62,13 @@
 		the value is $<span data-var="goldPrice"></span> Dollars.
 		<br />
 		<br />
-		<!--Right now the value of <span data-var="coffee" class="TKAdjustableNumber" data-min="1" data-max="1000"> Latte </span>
-		of coffee at Starbucks is $<span data-var="coffeePrice"></span> dollars.
+		Right now the price of <span data-var="coffee" class="TKAdjustableNumber" data-min="1" data-max="1000"> Latte </span>
+		at Starbucks is $<span data-var="coffeePrice"></span> dollars.
 		<br />
-		<br /> -->
+		<br />
+		So with <span data-var="bitcoinTwo" class="TKAdjustableNumber" data-min="1" data-max="1000"> Bitcoin</span> you can
+		purchase <span data-var="coffeePerBitcoin" data-format="%.0f"></span> Latte's from Starbucks.
+
 	</h4>
 
 </body>
